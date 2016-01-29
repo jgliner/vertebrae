@@ -36,7 +36,7 @@ var renderSomethingOnThePage = function(message) {
 
   /* Question:
    * How would you modify this template to add style to the look of the page?
-   *
+*  *    My Answer:--> Put in HTML Tags
    * _Look below for one possible solution._
    */
 
@@ -98,10 +98,10 @@ var Message = Backbone.Model.extend({
      *
      * Notice that we are calling `this.on()`.
      * This call is basically the same as the previous exercise.
-     * Putting it into the initialize function let's us be sure that
+     * Putting it into the initialize function lets us be sure that
      * all models that are created will have event listeners on them.
      */
-    this.on(YOUR CODE HERE);
+    this.on('change', renderSomethingOnThePage('Get Schwifty'));
     /* It is your turn to write the event handler.
      *
      * Make an event listener that will listen for a `change` in this model's
@@ -126,7 +126,7 @@ var Message = Backbone.Model.extend({
      * If you're curious about these functions, read up on them in
      * [the documentation](http://backbonejs.org/#Model-get).
      */
-    alert(this.get('message'));
+    console.info(this.get('message'));
   }
 });
 
@@ -135,14 +135,14 @@ var Message = Backbone.Model.extend({
  * Try it yourself, then check out the answer at the bottom of this script.
  */
 
-
 // Let's try it out: 'instantiate' an instance of the class defined above:
 var myNewMessage = new Message();
+
 
 // ...and then make a change on that model to see it render
 myNewMessage.set({message: 'someMessage'});
 
-
+myNewMessage.alertThisMessage();
 /* Once the model is rendering on the `change` event, move on to step 3!
  *
  * So far we have created models by extending Backbone.Model,
